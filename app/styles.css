@@ -96,17 +96,13 @@ h1 span { font-style: italic; display: inline-block; margin-left: -.035em; }
 .scene-caption > span { background: #151a12eb; padding: .45rem .6rem; }
 .motion { pointer-events: auto; padding: .45rem .6rem; background: #171e13; border: 1px solid #54643f; border-radius: 3px; cursor: pointer; }
 .motion:hover { border-color: var(--accent); }
+.scene-preview { position: absolute; inset: 8% 2% 10%; display: grid; place-items: center; translate: 0 var(--model-y, 0px); filter: drop-shadow(0 16px 30px #0b120ab0); }
 .scene-canvas { position: absolute; inset: 0; }
 .scene-canvas:focus-visible { outline-offset: -4px; }
-.scene-canvas canvas, .scene-fallback { translate: 0 var(--model-y, 0px); }
 .scene-canvas canvas { display: block; width: 100%; height: 100%; cursor: grab; touch-action: pan-y; }
 .scene-canvas canvas:active { cursor: grabbing; }
-.scene-fallback { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; filter: drop-shadow(20px 20px 22px #0b120a); }
+.scene-fallback { width: 94.34%; height: 94.34%; object-fit: contain; }
 .workstation[data-ready='true'] .scene-fallback { visibility: hidden; }
-.fallback-monitor { display: grid; align-content: center; gap: 9%; width: min(53%, 275px); aspect-ratio: 1.45; padding: 4%; border: clamp(10px, 2vw, 22px) solid #a3a47b; border-radius: 12%; box-shadow: 14px 5px #686d50, inset 0 0 28px #0d1a0e; background: repeating-linear-gradient(0deg, #101e12 0 3px, #172519 3px 5px); color: var(--accent); font: clamp(.5rem, 1vw, .8rem)/1.25 var(--mono); transform: skewY(-4deg); }
-.fallback-monitor strong { font-size: clamp(1.1rem, 3vw, 2.3rem); }
-.fallback-stand { width: 23%; height: 7%; background: #7c8160; border-radius: 0 0 7px 7px; }
-.fallback-keyboard { width: 58%; height: 9%; margin-top: 4%; border: 6px solid #959872; border-radius: 5px; background: repeating-linear-gradient(90deg, #c7c990 0 7%, #474d38 7% 8%); transform: skewX(-12deg) skewY(-4deg); }
 
 .section { border-top: 1px solid var(--border); padding-block: clamp(48px, 6.3vw, 92px); scroll-margin-top: 20px; }
 .hero-stage + .section { border-top: 0; }
@@ -216,6 +212,6 @@ h2 { font-size: clamp(2.65rem, 6vw, 5.5rem); letter-spacing: -.045em; line-heigh
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .hero-depth, .hero-grid, .scene-canvas canvas, .scene-fallback, .project-media img, .art-media img { translate: none; }
+  .hero-depth, .hero-grid, .scene-preview, .project-media img, .art-media img { translate: none; }
   .motion { display: none; }
 }
